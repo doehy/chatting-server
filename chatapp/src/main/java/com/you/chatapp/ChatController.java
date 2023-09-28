@@ -18,7 +18,7 @@ public class ChatController {
     @GetMapping(value = "/chat/roomNum/{roomNum}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Chat> findByRoomNum(@PathVariable Integer roomNum) {
         return chatRepository.mFindByRoomNum(roomNum)
-                .subscribeOn(Schedulers.boundedElastic());
+                .subscribeOn(Schedulers.boundedElastic())
     }
 
     @CrossOrigin
